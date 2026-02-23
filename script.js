@@ -10,7 +10,9 @@ const rejectedFilterbtn = document.getElementById('rejected-filter-btn');
 
 
 const cardCount = document.getElementById("allCard");
-// const mainContainer = document.querySelector('main')
+const mainContainer = document.querySelector('main');
+const filterSection = document.getElementById('interviewSection');
+const rejSection = document.getElementById('rejectedSection');
 
 
 
@@ -41,7 +43,7 @@ function toggleStyle(id){
 
 }
 
-const mainContainer = document.querySelector('main');
+
 
 mainContainer.addEventListener('click', function(event) {
     
@@ -60,19 +62,13 @@ mainContainer.addEventListener('click', function(event) {
         description:details[4]?.innerText || ''
     };
 
-//    const profilesExit = inerviewList.find(item=> item.profiles == details)
 
-//    if (!profilesExit){
-//     inerviewList.push(profiles)
-//    }
-//    console.log(inerviewList)
 const profilesExist = inerviewList.find(item => item.company === profiles.company);
 
 if (!profilesExist) {
     inerviewList.push(profiles);
 }
 
-console.log(inerviewList);
 });
 
 
