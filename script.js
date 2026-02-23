@@ -9,8 +9,8 @@ const interviewFilterbtn = document.getElementById('interview-filter-btn');
 const rejectedFilterbtn = document.getElementById('rejected-filter-btn');
 
 
-const cardCount = document.getElementById("cards");
-const maincontainer = document.querySelector('main')
+const cardCount = document.getElementById("allCard");
+// const mainContainer = document.querySelector('main')
 
 
 
@@ -40,3 +40,39 @@ function toggleStyle(id){
   selectedBtn.classList.add('bg-blue-500','text-white');
 
 }
+
+const mainContainer = document.querySelector('main');
+
+mainContainer.addEventListener('click', function(event) {
+    
+    const companyDetails = event.target.closest('.profile');
+    if (!companyDetails) return; 
+
+    
+    const details = companyDetails.querySelectorAll('p');
+
+    
+    const profiles = {
+        company: details[0]?.innerText || '',
+        role: details[1]?.innerText || '',
+        locationSalary: details[2]?.innerText || '',
+        status: details[3]?.innerText || '',
+        description:details[4]?.innerText || ''
+    };
+
+//    const profilesExit = inerviewList.find(item=> item.profiles == details)
+
+//    if (!profilesExit){
+//     inerviewList.push(profiles)
+//    }
+//    console.log(inerviewList)
+const profilesExist = inerviewList.find(item => item.company === profiles.company);
+
+if (!profilesExist) {
+    inerviewList.push(profiles);
+}
+
+console.log(inerviewList);
+});
+
+
