@@ -11,8 +11,7 @@ const rejectedFilterbtn = document.getElementById('rejected-filter-btn');
 
 const cardCount = document.getElementById("allCard");
 const mainContainer = document.querySelector('main');
-const filterSection = document.getElementById('interviewSection');
-const rejSection = document.getElementById('rejectedSection');
+
 
 
 
@@ -28,8 +27,12 @@ function Count() {
 
 }
 Count();
+
+
 function toggleStyle(id){
- allFilterbtn.classList.remove('bg-blue-500','text-white');
+
+  // Button reset
+  allFilterbtn.classList.remove('bg-blue-500','text-white');
   interviewFilterbtn.classList.remove('bg-blue-500','text-white');
   rejectedFilterbtn.classList.remove('bg-blue-500','text-white');
 
@@ -37,17 +40,41 @@ function toggleStyle(id){
   interviewFilterbtn.classList.add('bg-white','text-gray-500');
   rejectedFilterbtn.classList.add('bg-white','text-gray-500');
 
-  const selectedBtn = document.getElementById(id);
-  selectedBtn.classList.remove('bg-white','text-gray-500');
-  selectedBtn.classList.add('bg-blue-500','text-white');
+  document.getElementById(id)
+    .classList.remove('bg-white','text-gray-500');
 
+  document.getElementById(id)
+    .classList.add('bg-blue-500','text-white');
+
+  
+  cardCount.classList.add('hidden');
+  interviewSection.classList.add('hidden');
+  rejSection.classList.add('hidden');
+
+ 
+  if(id === 'all-filter-btn'){
+      cardCount.classList.remove('hidden');
+  }
+
+  if(id === 'interview-filter-btn'){
+      interviewSection.classList.remove('hidden');
+  }
+
+  if(id === 'rejected-filter-btn'){
+      rejSection.classList.remove('hidden');
+  }
 }
 
 
 
 mainContainer.addEventListener('click', function(event) {
     
-    const companyDetails = event.target.closest('.profile');
+    // console.log(event.target.parentNode.parentNode);
+    console.log(event.target.classList.contains('int-btn'));
+
+
+    if (event.target.classList.contains('int-btn')){
+        const companyDetails = event.target.closest('.profile');
     if (!companyDetails) return; 
 
     
@@ -64,11 +91,98 @@ mainContainer.addEventListener('click', function(event) {
 
 
 const profilesExist = inerviewList.find(item => item.company === profiles.company);
-
+ const parentNode = event.target.closest('.profile').querySelector('.status').innerText = ' Interview'
 if (!profilesExist) {
     inerviewList.push(profiles);
 }
-
+renderInterview()
+    }
 });
+const interviewSection = document.getElementById('interview-Section');
+const rejSection = document.getElementById('rejected-Section');
 
+function renderInterview(){
+    interviewSection.innerHTML = '';
+
+    for(let inTview of inerviewList){
+
+        let div = document.createElement('div');
+        div.className = 'bg-white shadow rounded p-4 mb-4';
+
+        div.innerHTML = `
+            <div class="space-y-2">
+                <p class="font-semibold">${inTview.company}</p>
+                <p class="text-gray-500">${inTview.role}</p>
+                <p class="text-gray-500">${inTview.locationSalary}</p>
+
+                <p class="status bg-green-100 text-green-600 px-4 py-1 inline-block rounded text-sm">
+                    INTERVIEW
+                </p>
+
+                <p class="text-gray-700">${inTview.description}</p>
+            </div>
+        `;
+
+        interviewSection.appendChild(div);
+    }
+
+    Count();
+}
+
+
+mainContainer.addEventListener('click', function(event) {
+    // Interview button logic is already here
+    if (event.target.classList.contains('rej-btn')) {
+        const companyDetails = event.target.closest('.profile');
+        if (!companyDetails) return;
+
+        const details = companyDetails.querySelectorAll('p');
+
+        const profiles = {
+            company: details[0]?.innerText || '',
+            role: details[1]?.innerText || '',
+            locationSalary: details[2]?.innerText || '',
+            status: details[3]?.innerText || '',
+            description: details[4]?.innerText || ''
+        };
+
+        // check if already in rejected list
+        const profilesExist = rejectedList.find(item => item.company === profiles.company);
+
+        // update the status text on the card
+        companyDetails.querySelector('.status').innerText = 'Rejected';
+
+        if (!profilesExist) {
+            rejectedList.push(profiles);
+        }
+
+        renderRejected();
+    }
+});
+function renderRejected(){
+    rejSection.innerHTML = '';
+
+    for(let rej of rejectedList){
+        let div = document.createElement('div');
+        div.className = 'bg-white shadow rounded p-4 mb-4';
+
+        div.innerHTML = `
+            <div class="space-y-2">
+                <p class="font-semibold">${rej.company}</p>
+                <p class="text-gray-500">${rej.role}</p>
+                <p class="text-gray-500">${rej.locationSalary}</p>
+
+                <p class="status bg-red-100 text-red-600 px-4 py-1 inline-block rounded text-sm">
+                    REJECTED
+                </p>
+
+                <p class="text-gray-700">${rej.description}</p>
+            </div>
+        `;
+
+        rejSection.appendChild(div);
+    }
+
+    Count();
+}
 
