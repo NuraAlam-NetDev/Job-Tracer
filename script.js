@@ -137,10 +137,25 @@ mainContainer.addEventListener('click', function(e){
 
 
 function renderInterview(){
+
+    
+    if(interviewList.length === 0){
+        interviewSection.innerHTML = `
+          <div class="empty-state text-center py-10">
+            <img src="jobs.png" class="mx-auto mb-4 w-40" alt="">
+            <h2 class="text-xl font-semibold text-gray-500">No Interview List</h2>
+          </div>
+        `;
+        jobCount(interviewSection);
+        return;
+    }
+
+    
     interviewSection.innerHTML = '';
+
     interviewList.forEach(i=>{
         const div = document.createElement('div');
-        div.className='bg-white shadow rounded p-4 mb-4';
+        div.className='card bg-white shadow rounded p-4 mb-4';
         div.innerHTML=`
             <div class="flex justify-between">
                 <div class="space-y-2">
@@ -151,19 +166,34 @@ function renderInterview(){
                     <p class="text-gray-700">${i.description}</p>
                 </div>
                 <div>
-                    <button class="delet-btn flex justify-between"><i class="fa-solid fa-trash-can text-gray-500"></i></button>
+                    <button class="delet-btn">
+                      <i class="fa-solid fa-trash-can text-gray-500"></i>
+                    </button>
                 </div>
             </div>`;
         interviewSection.appendChild(div);
     });
+
     jobCount(interviewSection);
 }
-
 function renderRejected(){
+
+    if(rejectedList.length === 0){
+        rejSection.innerHTML = `
+          <div class="empty-state text-center py-10">
+            <img src="jobs.png" class="mx-auto mb-4 w-40" alt="">
+            <h2 class="text-xl font-semibold text-gray-500">No Rejected List</h2>
+          </div>
+        `;
+        jobCount(rejSection);
+        return;
+    }
+
     rejSection.innerHTML='';
+
     rejectedList.forEach(i=>{
         const div=document.createElement('div');
-        div.className='bg-white shadow rounded p-4 mb-4';
+        div.className='card bg-white shadow rounded p-4 mb-4';
         div.innerHTML=`
             <div class="flex justify-between">
                 <div class="space-y-2">
@@ -174,11 +204,14 @@ function renderRejected(){
                     <p class="text-gray-700">${i.description}</p>
                 </div>
                 <div>
-                    <button class="delet-btn flex justify-between"><i class="fa-solid fa-trash-can text-gray-500"></i></button>
+                    <button class="delet-btn">
+                      <i class="fa-solid fa-trash-can text-gray-500"></i>
+                    </button>
                 </div>
             </div>`;
         rejSection.appendChild(div);
     });
+
     jobCount(rejSection);
 }
 
