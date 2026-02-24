@@ -1,0 +1,29 @@
+1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+
+getElementById : It will selct the element by ID attribute and also select only one element.
+
+getElementsByClassName : It will select the element by class attribute and also select more element.
+
+
+querySelector : It will return the first matching element.
+
+
+querySelectorAll : It will return all the matching element.
+
+2. How do you create and insert a new element into the DOM?
+
+let newElement = document.createElement('a');
+
+3. What is Event Bubbling? And how does it work?
+
+when a clicked in a btn it will give the parentNode 
+
+4. What is Event Delegation in JavaScript? Why is it useful?
+
+Event Delegation is a technique where we place event listeners on the parent element instead of the child elements, and handle the event triggered by a child element through event bubbling
+
+5. What is the difference between preventDefault() and stopPropagation() methods?
+
+preventDefault() : This disables the default browser behavior.
+
+stopPropagation() : This stops event bubbling or capturing.I want to handle an event on a child element, but I don't want to notify the parent about that event.

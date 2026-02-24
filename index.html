@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Tracer</title>
@@ -28,91 +26,60 @@
       }
     </style>
   </head>
-  <body class="bg-gray-100">
-    <header class="w-[80%] mx-auto pt-6">
-      <h1 class="text-4xl font-bold">Job Application Tracker</h1>
-      <div class="grid grid-cols-3 gap-8 p-3">
-        <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
-          <p class="text-gray-500 text-sm">Total</p>
-          <p id="total" class="text-2xl font-bold text-blue-600">0</p>
-        </div>
-        <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
-          <p class="text-gray-500 text-sm">Interview</p>
-          <p id="interview" class="text-2xl font-bold text-green-600">0</p>
-        </div>
-        <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
-          <p class="text-gray-500 text-sm">Rejected</p>
-          <p id="rejected" class="text-2xl font-bold text-red-600">0</p>
-        </div>
-      </div>
-    </header>
-    <hr class="my-5" />
-    <div class="flex justify-between py-3 mt-4 w-[80%] mx-auto">
-      <h3>Available Jobs</h3>
-      <p id="job-count" class="text-gray-500">0 <span>jobs</span></p>
+<body class="bg-gray-100">
+
+<header class="w-[80%] mx-auto pt-6">
+  <h1 class="text-4xl font-bold">Job Application Tracker</h1>
+  <div class="grid grid-cols-3 gap-8 p-3">
+    <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
+      <p class="text-gray-500 text-sm">Total</p>
+      <p id="total" class="text-2xl font-bold text-blue-600">0</p>
     </div>
-    <main class="w-[80%] mx-auto">
-      
-      <div class="mb-6">
-        <button
-          onclick="toggleStyle('all-filter-btn')"
-          class="bg-blue-500 text-white px-3 rounded"
-          id="all-filter-btn"
-        >
-          All
-        </button>
-        <button
-          onclick="toggleStyle('interview-filter-btn')"
-          class="bg-white text-gray-500 px-3 rounded"
-          id="interview-filter-btn"
-        >
-          Interview
-        </button>
-        <button
-          onclick="toggleStyle('rejected-filter-btn')"
-          class="bg-white text-gray-500 px-3 rounded"
-          id="rejected-filter-btn"
-        >
-          Rejected
-        </button>
-      </div>
+    <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
+      <p class="text-gray-500 text-sm">Interview</p>
+      <p id="interview" class="text-2xl font-bold text-green-600">0</p>
+    </div>
+    <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
+      <p class="text-gray-500 text-sm">Rejected</p>
+      <p id="rejected" class="text-2xl font-bold text-red-600">0</p>
+    </div>
+  </div>
+</header>
 
-      <section id="allCard ">
-        <!-- card-1 -->
-        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
-          <div class="flex justify-between items-start">
-            <div class="space-y-2 profile">
-              <p class="text-black">Mobile First Corp</p>
-              <p class="text-gray-500">React Native Developer</p>
-              <p class="text-gray-500">
-                Remote - Full-time - $130,000 - $175,000
-              </p>
+<hr class="my-5" />
 
-              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
-              <p class="text-gray-800">
-                Build cross-platform mobile applications using React Native.
-                Work on products used by millions of users worldwide.
-              </p>
+<div class="flex justify-between py-3 mt-4 w-[80%] mx-auto">
+  <h3>Available Jobs</h3>
+  <p id="job-count" class="text-gray-500">0 <span>jobs</span></p>
+</div>
 
-              <button
-                class="int-btn text-green-600 border border-green-600 px-3 py-1 bg-white rounded"
-              >
-                Interview
-              </button>
-              <button
-                class="rej-btn text-red-600 border border-red-600 px-3 py-1 bg-white rounded"
-              >
-                Rejected
-              </button>
-            </div>
-            <div>
-              <button class="delet-btn">
-                <i class="fa-solid fa-trash-can text-gray-500"></i>
-              </button>
-            </div>
-          </div>
+<main class="w-[80%] mx-auto">
+
+  <div class="mb-6">
+    <button onclick="toggleStyle('all-filter-btn')" class="bg-blue-500 text-white px-3 rounded" id="all-filter-btn">All</button>
+    <button onclick="toggleStyle('interview-filter-btn')" class="bg-white text-gray-500 px-3 rounded" id="interview-filter-btn">Interview</button>
+    <button onclick="toggleStyle('rejected-filter-btn')" class="bg-white text-gray-500 px-3 rounded" id="rejected-filter-btn">Rejected</button>
+  </div>
+
+  <section id="allCard">
+    <!--  card--1 -->
+    <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+      <div class="flex justify-between items-start">
+        <div class="space-y-2 profile">
+          <p class="text-black">Mobile First Corp</p>
+          <p class="text-gray-500">React Native Developer</p>
+          <p class="text-gray-500">Remote - Full-time - $130,000 - $175,000</p>
+          <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
+          <p class="text-gray-800">Build cross-platform mobile apps using React Native.</p>
+          <button class="int-btn text-green-600 border border-green-600 px-3 py-1 bg-white rounded">Interview</button>
+          <button class="rej-btn text-red-600 border border-red-600 px-3 py-1 bg-white rounded">Rejected</button>
         </div>
-        <!-- card-2 -->
+        <div>
+          <button class="delet-btn"><i class="fa-solid fa-trash-can text-gray-500"></i></button>
+        </div>
+      </div>
+    </div>
+     <!-- card-2 -->
         <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
           <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
@@ -340,10 +307,16 @@
             </div>
           </div>
         </div>
-      </section>
-      <section id="interview-Section" class="hidden"></section>
-      <section id="rejected-Section" class="hidden"></section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+  </section>
+
+  <section id="interview-Section" class="hidden"></section>
+  <section id="rejected-Section" class="hidden"></section>
+
+</main>
+
+
+<script src="script.js">
+
+</script>
+</body>
 </html>
