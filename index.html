@@ -28,21 +28,21 @@
       }
     </style>
   </head>
-  <body>
+  <body class="bg-gray-100">
     <header class="w-[80%] mx-auto pt-6">
       <h1 class="text-4xl font-bold">Job Application Tracker</h1>
       <div class="grid grid-cols-3 gap-8 p-3">
-        <div>
-          <p>Total</p>
-          <p id="total">0</p>
+        <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
+          <p class="text-gray-500 text-sm">Total</p>
+          <p id="total" class="text-2xl font-bold text-blue-600">0</p>
         </div>
-        <div>
-          <p>Interview</p>
-          <p id="interview">0</p>
+        <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
+          <p class="text-gray-500 text-sm">Interview</p>
+          <p id="interview" class="text-2xl font-bold text-green-600">0</p>
         </div>
-        <div>
-          <p>Rejected</p>
-          <p id="rejected">0</p>
+        <div class="bg-white border rounded-xl shadow-sm p-4 text-center">
+          <p class="text-gray-500 text-sm">Rejected</p>
+          <p id="rejected" class="text-2xl font-bold text-red-600">0</p>
         </div>
       </div>
     </header>
@@ -53,7 +53,7 @@
     </div>
     <main class="w-[80%] mx-auto">
       
-      <div>
+      <div class="mb-6">
         <button
           onclick="toggleStyle('all-filter-btn')"
           class="bg-blue-500 text-white px-3 rounded"
@@ -77,10 +77,10 @@
         </button>
       </div>
 
-      <section id="allCard">
+      <section id="allCard ">
         <!-- card-1 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">Mobile First Corp</p>
               <p class="text-gray-500">React Native Developer</p>
@@ -88,7 +88,7 @@
                 Remote - Full-time - $130,000 - $175,000
               </p>
 
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Build cross-platform mobile applications using React Native.
                 Work on products used by millions of users worldwide.
@@ -113,15 +113,15 @@
           </div>
         </div>
         <!-- card-2 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">WebFlow Agency</p>
               <p class="text-gray-500">Web Designer & Developer</p>
               <p class="text-gray-500">
                 Los Angeles, CA - Part-time - $80,000 - $120,000
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Create stunning web experiences for high-profile clients. Must
                 have portfolio and experience with modern web design trends.
@@ -145,15 +145,15 @@
           </div>
         </div>
         <!-- card-3 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">DataViz Solutions</p>
               <p class="text-gray-500">Data Visualization Specialist</p>
               <p class="text-gray-500">
                 Boston, MA -Fulltime - $125,000 - $165,000
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Transform complex data into compelling visualizations. Required
                 skills: D3.js, React, and strong analytical thinking.
@@ -177,15 +177,15 @@
           </div>
         </div>
         <!-- card-4 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">CloudFirst Inc</p>
               <p class="text-gray-500">Backend Developer</p>
               <p class="text-gray-500">
                 Seattle, WA - Fulltime -$140,000 - $190,000
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Design and maintain scalable backend systems using Python and
                 AWS. Work with modern DevOps practices and cloud infrastructure.
@@ -209,15 +209,15 @@
           </div>
         </div>
         <!-- card-5 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">Innovation Labs</p>
               <p class="text-gray-500">UI/UX Engineer</p>
               <p class="text-gray-500">
                 Austin, TX - Fulltime - $110,000 - $150,000
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Create beautiful and functional user interfaces for our suite of
                 products. Strong design skills and frontend development
@@ -242,15 +242,15 @@
           </div>
         </div>
         <!-- card-6 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">MegaCorp Solutions</p>
               <p class="text-gray-500">JavaScript Developer</p>
               <p class="text-gray-500">
                 New York, NY - Fulltime - $130,000 - $170,00
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Build enterprise applications with JavaScript and modern
                 frameworks. We offer competitive compensation, health insurance,
@@ -275,15 +275,15 @@
           </div>
         </div>
         <!-- card-7 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black">StartupXYZ</p>
               <p class="text-gray-500">Full Stack Engineer</p>
               <p class="text-gray-500">
                 Remote - Full-time - $120,000 - $160,000
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 Join our fast-growing startup and work on our core platform.
                 Experience with Node.js and React required. Great benefits and
@@ -308,15 +308,15 @@
           </div>
         </div>
         <!-- card-8 -->
-        <div class="card pt-4">
-          <div class="card flex justify-between">
+        <div class="card bg-white border rounded-xl shadow-sm hover:shadow-md transition duration-300 p-6 mb-6">
+          <div class="flex justify-between items-start">
             <div class="space-y-2 profile">
               <p class="text-black profile">TechCorp Industries</p>
               <p class="text-gray-500">Senior Frontend Developer</p>
               <p class="text-gray-500">
                 San Francisco, CA - Full-time - $130,000 - $175,000
               </p>
-              <p class="status bg-gray-200 px-4 inline-block">NOT APPLIED</p>
+              <p class="status bg-gray-200 px-4 inline-block rounded">NOT APPLIED</p>
               <p class="text-gray-800">
                 We are looking for an experienced Frontend Developer to build
                 scalable web applications using React and TypeScript. You will
