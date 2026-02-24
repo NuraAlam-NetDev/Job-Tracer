@@ -12,7 +12,7 @@ const rejectedFilterbtn = document.getElementById('rejected-filter-btn');
 const cardCount = document.getElementById("allCard");
 const mainContainer = document.querySelector('main');
 
-
+const jobsCounter = document.getElementById('job-count');
 
 
 
@@ -31,7 +31,7 @@ Count();
 
 function toggleStyle(id){
 
-  // Button reset
+  
   allFilterbtn.classList.remove('bg-blue-500','text-white');
   interviewFilterbtn.classList.remove('bg-blue-500','text-white');
   rejectedFilterbtn.classList.remove('bg-blue-500','text-white');
@@ -63,6 +63,20 @@ function toggleStyle(id){
   if(id === 'rejected-filter-btn'){
       rejSection.classList.remove('hidden');
   }
+  if(id === 'all-filter-btn'){
+    cardCount.classList.remove('hidden');
+    jobCount(cardCount);  
+}
+
+if(id === 'interview-filter-btn'){
+    interviewSection.classList.remove('hidden');
+    jobCount(interviewSection);  
+}
+
+if(id === 'rejected-filter-btn'){
+    rejSection.classList.remove('hidden');
+    jobCount(rejSection);  
+}
 }
 
 
@@ -132,6 +146,7 @@ function renderInterview(){
         `;
 
         interviewSection.appendChild(div);
+        jobCount(interviewSection);
     }
 
     Count();
@@ -197,6 +212,7 @@ function renderRejected(){
         `;
 
         rejSection.appendChild(div);
+        jobCount(rejSection);
     }
 
     Count();
@@ -250,3 +266,8 @@ mainContainer.addEventListener('click', function (event) {
     }
 
 });
+
+
+function jobCount(section){
+    jobsCounter.innerHTML = `${section.children.length} <span>jobs</span>`;
+}
