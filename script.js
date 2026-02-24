@@ -69,7 +69,7 @@ function toggleStyle(id){
 
 mainContainer.addEventListener('click', function(event) {
     
-    // console.log(event.target.parentNode.parentNode);
+    
     console.log(event.target.classList.contains('int-btn'));
 
 
@@ -110,7 +110,8 @@ function renderInterview(){
         div.className = 'bg-white shadow rounded p-4 mb-4';
 
         div.innerHTML = `
-            <div class="space-y-2">
+         <div class= "flex justify-between">
+            <div class="space-y-2 ">
                 <p class="font-semibold">${inTview.company}</p>
                 <p class="text-gray-500">${inTview.role}</p>
                 <p class="text-gray-500">${inTview.locationSalary}</p>
@@ -120,6 +121,13 @@ function renderInterview(){
                 </p>
 
                 <p class="text-gray-700">${inTview.description}</p>
+                
+            </div>
+            <div>
+              <button class="delet-btn flex justify-between">
+                <i class="fa-solid fa-trash-can text-gray-500"></i>
+              </button>
+            </div>
             </div>
         `;
 
@@ -131,7 +139,7 @@ function renderInterview(){
 
 
 mainContainer.addEventListener('click', function(event) {
-    // Interview button logic is already here
+    
     if (event.target.classList.contains('rej-btn')) {
         const companyDetails = event.target.closest('.profile');
         if (!companyDetails) return;
@@ -146,10 +154,10 @@ mainContainer.addEventListener('click', function(event) {
             description: details[4]?.innerText || ''
         };
 
-        // check if already in rejected list
+       
         const profilesExist = rejectedList.find(item => item.company === profiles.company);
 
-        // update the status text on the card
+       
         companyDetails.querySelector('.status').innerText = 'Rejected';
 
         if (!profilesExist) {
@@ -162,21 +170,29 @@ mainContainer.addEventListener('click', function(event) {
 function renderRejected(){
     rejSection.innerHTML = '';
 
-    for(let rej of rejectedList){
+    for(let reJected of rejectedList){
         let div = document.createElement('div');
         div.className = 'bg-white shadow rounded p-4 mb-4';
 
         div.innerHTML = `
+        <div class="flex justify-between">
             <div class="space-y-2">
-                <p class="font-semibold">${rej.company}</p>
-                <p class="text-gray-500">${rej.role}</p>
-                <p class="text-gray-500">${rej.locationSalary}</p>
+                <p class="font-semibold">${reJected.company}</p>
+                <p class="text-gray-500">${reJected.role}</p>
+                <p class="text-gray-500">${reJected.locationSalary}</p>
 
                 <p class="status bg-red-100 text-red-600 px-4 py-1 inline-block rounded text-sm">
                     REJECTED
                 </p>
 
-                <p class="text-gray-700">${rej.description}</p>
+                <p class="text-gray-700">${reJected.description}</p>
+                
+            </div>
+            <div>
+              <button class="delet-btn flex justify-between">
+                <i class="fa-solid fa-trash-can text-gray-500"></i>
+              </button>
+            </div>
             </div>
         `;
 
@@ -186,3 +202,51 @@ function renderRejected(){
     Count();
 }
 
+
+
+
+mainContainer.addEventListener('click', function (event) {
+
+    const deleteBtn = event.target.closest('.delet-btn');
+    if (!deleteBtn) return;
+
+   
+    const interviewParent = deleteBtn.closest('#interview-Section');
+    const rejectedParent = deleteBtn.closest('#rejected-Section');
+
+    
+    if (interviewParent) {
+
+        const selectedCard = deleteBtn.closest('div.bg-white');
+        const companyName = selectedCard.querySelector('p').innerText;
+
+        inerviewList = inerviewList.filter(
+            item => item.company !== companyName
+        );
+
+        renderInterview();
+        return;
+    }
+
+    
+    if (rejectedParent) {
+
+        const selectCard = deleteBtn.closest('div.bg-white');
+        const companyName = selectCard.querySelector('p').innerText;
+
+        rejectedList = rejectedList.filter(
+            item => item.company !== companyName
+        );
+
+        renderRejected();
+        return;
+    }
+
+   
+    const allCard = deleteBtn.closest('.card');
+    if (allCard) {
+        allCard.remove();
+        Count();
+    }
+
+});
